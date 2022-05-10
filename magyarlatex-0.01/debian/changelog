@@ -1,0 +1,16 @@
+magyarlatex (0.01-2) unstable; urgency=low
+
+  * prerm and postinst scripts
+  * symlinks to binaries
+
+ -- Szabó Péter <pts@winter>  Mon,  8 Mar 2004 16:36:03 +0100
+
+magyarlatex (0.01-1) unstable; urgency=low
+
+  * Initial Debian release.
+
+ -- Szabó Péter <pts@winter>  Mon,  8 Mar 2004 10:09:09 +0100
+
+Local variables:
+mode: debian-changelog
+End:

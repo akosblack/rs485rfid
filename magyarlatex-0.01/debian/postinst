@@ -1,0 +1,7 @@
+#!/bin/bash
+# vvv this ensures that `kpsewhich magyar.ldf' finds our magyar.ldf first
+rm -f /usr/share/texmf/tex/generic/0magyar
+ln -s magyar /usr/share/texmf/tex/generic/0magyar
+#(cd /usr/share/texmf && (for F in tex/generic/babel/{magyar.ldf,huhyph*.tex}; \
+#  do test -f "$F" && mv -f "$F"{,.not}; done; true))
+mktexlsr /usr/share/texmf

@@ -1,0 +1,22 @@
+Source: magyarlatex
+Section: tex
+Priority: optional
+Maintainer: Szabó Péter <pts@fazekas.hu>
+Build-Depends: debmake, make, bash, perl, gzip, fileutils
+Standards-Version: 3.2.1
+
+Package: magyarlatex
+Architecture: any
+Depends: perl, tetex-base, tetex-bin, ${shlibs:Depends}
+Replaces: xindy, pts-xindy, pts-xindy-magyar
+Suggests: xindy | pts-xindy
+Description: MagyarLaTeX: easy Hungarian typesetting with LaTeX
+  This package contains all files necessary for typesetting in
+  the Hungarian language with LaTeX. TeX hyphenation patterns, LaTeX style
+  files, Babel language definition files and Perl scripts are included.
+
+Package: magyarlatex-doc
+Architecture: any
+Suggests: pdf-viewer
+Description: documentation of MagyarLaTeX
+  This package contains the documentation of MagyarLaTeX in PDF format.
