@@ -1,4 +1,8 @@
 #include <SoftwareSerial.h>
+#include <SPI.h>
+#include <MFRC522.h>
+#include <PCD8544.h>
+ PCD8544 lcd;
 
 String MASTER_PORT = "32";
 String SLAVE_PORT = "00";  // broadcast for future applications
@@ -15,14 +19,20 @@ const int maxCardNumber = 5;
 String cards[maxCardNumber] = {"00 D1 1B 83", "", "", "", ""};
 
 // RS485
-#define RX A0
+#define RX D1
 #define TX A1
 #define DE A2
-#define RE A3
+#define RE D2
 SoftwareSerial rs485(RX, TX); // RX, TX
+
+// RFID
+#define SS_PIN 10 // rfidsda
+#define RST_PIN 9 // rfidrst
 
 void setup()
 {
+  // LCD screen - Nokia 5110 
+  lcd.begin(84, 48);
   // RS485
   pinMode(DE, OUTPUT);
   digitalWrite(DE, LOW);
@@ -171,7 +181,8 @@ void rs485Communication()
 
 void loop()
 {
-
+  lcd.setCursor(0, 1);
+  lcd.print("Waiting for Card to read...");
   serialCommunication();
   rs485Communication();
 
