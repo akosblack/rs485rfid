@@ -1,5 +1,8 @@
-#include <Arduino.h>
 #include <SoftwareSerial.h>
+#include <SPI.h>
+#include <MFRC522.h>
+#include <PCD8544.h>
+ PCD8544 lcd;
 
 String MASTER_PORT = "32";
 String SLAVE_PORT = "00";  // broadcast for future applications
@@ -13,31 +16,23 @@ int approve = 0;
 String cardID = "";
 String latestPORT = "";
 const int maxCardNumber = 5;
-String cards[maxCardNumber] = {"00 D1 1B 83", "CC CC A3 16", "", "", ""};
-
-//Oda mi
-// start - [
-// port_num - where / back to the correct slave
-// ok/no - 1/0
-// end - ]
-//example: [311]
-
-//Ide az
-// start - [
-// port_num - hova
-// RFID - ID
-// end - ]
-//example: [FF01xxxxxxxx]
+String cards[maxCardNumber] = {"00 D1 1B 83", "", "", "", ""};
 
 // RS485
-#define RX A0
+#define RX D1
 #define TX A1
 #define DE A2
-#define RE A3
+#define RE D2
 SoftwareSerial rs485(RX, TX); // RX, TX
+
+// RFID
+#define SS_PIN 10 // rfidsda
+#define RST_PIN 9 // rfidrst
 
 void setup()
 {
+  // LCD screen - Nokia 5110 
+  lcd.begin(84, 48);
   // RS485
   pinMode(DE, OUTPUT);
   digitalWrite(DE, LOW);
@@ -49,10 +44,14 @@ void setup()
 
   Serial.begin(9600);
   rs485.begin(19200);
+
+  Serial.println("Master is running!");
+  
 }
 
 int RFID_checkCard(String checkID)
 {
+  Serial.println("Approving...");
   int message = 0;
   for (int i = 0; i <= maxCardNumber; i++)
   {
@@ -62,6 +61,7 @@ int RFID_checkCard(String checkID)
       break;
     }
   }
+  
   return message;
 }
 
@@ -73,6 +73,7 @@ void Approve_send(String Port,int result)
   // ok/no - 1/0
   // end - ]
   rs485.println("[" + Port + result +"]");
+  Serial.println("[" + Port + result +"]");
   rs485.flush(); //wait for complete the message
   digitalWrite(DE, LOW);
   return;
@@ -107,17 +108,20 @@ void serialCommunication()
     Serial.println("The received full-command: " + command.substring(1));
     Serial.println();
 
-    if (command.charAt(0) == MASTER_PORT[0] && command.charAt(1) == MASTER_PORT[1])
+
+  //TODO!!!! ez nem így van 
+  
+    if (command.substring(1,3) == MASTER_PORT)
     {
-      latestPORT = command.substring(2,4);
+      latestPORT = command.substring(3,5);
       //Print slave port
       Serial.println("Slave port: "+latestPORT);
       Serial.println();
       {
         //Ellenorzes a id-ra
-        Serial.println("CardID: " + command.substring(4));
+        Serial.println("CardID: " + command.substring(5));
         Serial.println();
-        cardID = command.substring(4);
+        cardID = command.substring(5);
         approve = RFID_checkCard(cardID);
 
         if(approve == 1){ //has accesss -> approved
@@ -177,7 +181,8 @@ void rs485Communication()
 
 void loop()
 {
-
+  lcd.setCursor(0, 1);
+  lcd.print("Waiting for Card to read...");
   serialCommunication();
   rs485Communication();
 

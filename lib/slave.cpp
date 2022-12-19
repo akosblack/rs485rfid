@@ -3,14 +3,12 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-// RS485
-#define RX A0
-#define TX A1
-#define DE A2
-#define RE A3
-SoftwareSerial rs485(RX, TX); // RX, TX
+String MASTER_PORT = "32"; // master id, the last
+// String SLAVE_PORT = "00";  // broadcast for future applications
+String PORT = "31";        // own id
 
-// Oda mis
+// TODO kicserélni CAN/MODBUS-ra
+// Slave küldi
 //  start - [
 //  port_num - hova
 //  RFID - ID
@@ -18,28 +16,27 @@ SoftwareSerial rs485(RX, TX); // RX, TX
 // example: [FF01xxxxxxxx]
 // FF01xxxxxxxx
 
-// Mastertől mi
+// Mastertől kapja
 //  start - [
 //  port_num - where / back to the correct slave
 //  ok/no - 1/0
 //  end - ]
 // example: [311]
 
-String to_check_id = "";
+// RS485
+#define RO D0
+#define DE D1
+#define DI D2
+//#define RE D2 // dont change -> connected to the GND
+SoftwareSerial rs485(RO, DI); // RO, DI
+
+// LED - ws2812e
+#define LED D4
 
 // RFID
-#define SS_PIN 10 // rfidsda
-#define RST_PIN 9 // rfidrst
-
-// LEDs
-#define RED 2   // redled
-#define GREEN 3 // greenled
-
-String MASTER_PORT = "32"; // master id, the last
-String SLAVE_PORT = "00";  // broadcast for future applications
-String PORT = "31";        // own id
-
-MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance.
+#define SS_PIN D3 // rfid chip select
+MFRC522 mfrc522(SS_PIN, 100); // Create MFRC522 instance
+String to_check_id = "";
 
 // For RS485 and serial communication
 char incomingByte;
@@ -56,8 +53,8 @@ void setup()
   // RS485
   pinMode(DE, OUTPUT);
   digitalWrite(DE, LOW);
-  pinMode(RE, OUTPUT);
-  digitalWrite(RE, LOW);
+  // pinMode(RE, OUTPUT);
+  // digitalWrite(RE, LOW);
 
   // LEDs
   pinMode(LED_BUILTIN, OUTPUT);
@@ -68,7 +65,7 @@ void setup()
   digitalWrite(RED, LOW);
 
   // Serial
-  Serial.begin(9600);
+  Serial.begin(115200);
   rs485.begin(19200);
 
   // RFID card

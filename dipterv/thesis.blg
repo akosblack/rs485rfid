@@ -1,0 +1,77 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: include/guideline.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+A level-1 auxiliary file: include/project.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: include/titlepage.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: include/declaration.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: content/abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: content/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: content/latex-tools.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: content/thesis-format.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: content/template-usage.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: content/acknowledgement.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: content/appendices.aux
+Database file #1: bib/mybib.bib
+Warning--entry type for "KissPhD" isn't style-file defined
+--line 31 of file bib/mybib.bib
+Warning--entry type for "Jeney" isn't style-file defined
+--line 70 of file bib/mybib.bib
+Warning--empty year in DipPortal
+Warning--empty journal in Candy86
+You've used 8 entries,
+            2773 wiz_defined-function locations,
+            665 strings with 6539 characters,
+and the built_in function-call counts, 3169 in all, are:
+= -- 287
+> -- 119
+< -- 10
++ -- 43
+- -- 35
+* -- 204
+:= -- 474
+add.period$ -- 29
+call.type$ -- 8
+change.case$ -- 33
+chr.to.int$ -- 8
+cite$ -- 18
+duplicate$ -- 169
+empty$ -- 301
+format.name$ -- 45
+if$ -- 684
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 5
+newline$ -- 52
+num.names$ -- 34
+pop$ -- 91
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 128
+stack$ -- 0
+substring$ -- 95
+swap$ -- 33
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 83
+warning$ -- 2
+while$ -- 32
+width$ -- 0
+write$ -- 114
+(There were 4 warnings)
