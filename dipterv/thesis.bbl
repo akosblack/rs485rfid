@@ -1,0 +1,59 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Budapesti Műszaki és Gazdaságtudományi Egyetem Villamosmérnöki
+  és Informatikai Kar}()]{DipPortal}
+{Budapesti Műszaki és Gazdaságtudományi Egyetem Villamosmérnöki és
+  Informatikai Kar}.
+\newblock Diplomaterv portál (2011. február 26.).
+\newblock \url{http://diplomaterv.vik.bme.hu/}.
+
+\bibitem[Candy(1986)]{Candy86}
+James~C. Candy.
+\newblock Decimation for sigma delta modulation.
+\newblock 34\penalty0 (1):\penalty0 72--76, 01 1986.
+\newblock \doi{10.1109/TCOM.1986.1096432}.
+
+\bibitem[Jeney(2014)]{Jeney}
+Gábor Jeney.
+\newblock Hogyan néz ki egy igényes dokumentum? {N}éhány szóban az
+  alapvető tipográfiai szabályokról, 2014.
+\newblock \url{http://www.mcl.hu/~jeneyg/kinezet.pdf}.
+
+\bibitem[Kiss(2000)]{KissPhD}
+Peter Kiss.
+\newblock Adaptive digital compensation of analog circuit imperfections for
+  cascaded delta-sigma analog-to-digital converters, 04 2000.
+
+\bibitem[Lee and Sodini(1987)]{Lee87}
+Wai~L. Lee and Charles~G. Sodini.
+\newblock A topology for higher order interpolative coders.
+\newblock In \emph{Proc.\ of the IEEE International Symposium on Circuits and
+  Systems}, pages 459--462, 05~4--7 1987.
+
+\bibitem[Mkrtychev(1997)]{Mkrtychev:1997}
+Alexey Mkrtychev.
+\newblock Models for the logic of proofs.
+\newblock In Sergei Adian and Anil Nerode, editors, \emph{Logical Foundations
+  of Computer Science}, volume 1234 of \emph{Lecture Notes in Computer
+  Science}, pages 266--275. Springer Berlin Heidelberg, 1997.
+\newblock ISBN 978-3-540-63045-6.
+\newblock \doi{10.1007/3-540-63045-7_27}.
+\newblock URL \url{http://dx.doi.org/10.1007/3-540-63045-7_27}.
+
+\bibitem[Schreier(2000)]{Schreier00}
+Richard Schreier.
+\newblock \emph{The Delta-Sigma Toolbox v5.2}.
+\newblock Oregon State University, 01 2000.
+\newblock \url{http://www.mathworks.com/matlabcentral/fileexchange/}.
+
+\bibitem[Wettl et~al.(2004)Wettl, Mayer, and Szabó]{Wettl04}
+Ferenc Wettl, Gyula Mayer, and Péter Szabó.
+\newblock \emph{\LaTeX~kézikönyv}.
+\newblock Panem Könyvkiadó, 2004.
+
+\end{thebibliography}

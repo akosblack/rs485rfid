@@ -30,19 +30,19 @@ String cards[maxCardNumber] = {"00 D1 1B 83", "CC CC A3 16", "", "", ""};
 //example: [FF01xxxxxxxx]
 
 // RS485
-#define RX A0
-#define TX A1
-#define DE A2
-#define RE A3
-SoftwareSerial rs485(RX, TX); // RX, TX
+#define RO D2
+#define DI D4
+#define DE D1
+//#define RE D2
+SoftwareSerial rs485(RO, DI); // RO, DI
 
 void setup()
 {
   // RS485
   pinMode(DE, OUTPUT);
   digitalWrite(DE, LOW);
-  pinMode(RE, OUTPUT);
-  digitalWrite(RE, LOW);
+  // pinMode(RE, OUTPUT);
+  // digitalWrite(RE, LOW);
 
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW); // turn the LED off by making the voltage LOW
@@ -98,9 +98,7 @@ void serialCommunication()
       command.concat(incomingByte);
     }
   }
-
-  // TODO: if(messageCompleted)
-  
+ 
   if (messageCompleted)
   { 
     Serial.println();
